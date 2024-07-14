@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int maxDiffTwoElements(vector<int>& v) {
+    if(v.size() <= 1) return 0;
+    int maxIndex = 0;
+    for(int i = 0; i < v.size(); i++) {
+        if(v[i] > v[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+    int minIndex = maxIndex;
+    for(int i = 0; i < v.size(); i++) {
+        if(v[i] < v[minIndex] && i != maxIndex) {
+            minIndex = i;
+        }
+    }
+    return v[maxIndex]-v[minIndex];
+}
+int main() {
+    int n;
+    cin>>n;
+    vector<int> v(n,0);
+    for(int i = 0; i < n; i++) {
+        cin>>v[i];
+    }
+    cout<<maxDiffTwoElements(v);
+    return 0;
+}

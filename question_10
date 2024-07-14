@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool checkOnlyAlphabet(string s) {
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] >= 65 && s[i] <= 90 || s[i] >= 97 && s[i] <= 122) {
+            continue;
+        }
+        return false;
+    }
+    return true;
+}
+int main() {
+    string s;
+    cin>>s;
+    cout<<(checkOnlyAlphabet(s) ? "True" : "False");
+    return 0;
+}
